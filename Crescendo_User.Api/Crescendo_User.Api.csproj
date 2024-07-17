@@ -7,8 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.7" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Crescendo_User.Application\Crescendo_User.Application.csproj" />
+    <ProjectReference Include="..\Crescendo_User.Infrastructure\Crescendo_User.Infrastructure.csproj" />
+    <ProjectReference Include="..\Crescendo_User.Model\Crescendo_User.Model.csproj" />
   </ItemGroup>
 
 </Project>
