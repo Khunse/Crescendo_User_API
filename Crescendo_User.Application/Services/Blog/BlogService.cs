@@ -10,6 +10,13 @@ public class BlogService : IBlogService
     {
         _blogDBService = blogDBService;
     }
+
+    public async Task<BlogResult> GetBlogById(long id)
+    {
+        var blog = await _blogDBService.GetBlogByIdDB(id);
+        return blog;
+    }
+
     public async Task<List<BlogResult>> GetBlogs()
     {
         var listdata =  await _blogDBService.GetBlogsDB();

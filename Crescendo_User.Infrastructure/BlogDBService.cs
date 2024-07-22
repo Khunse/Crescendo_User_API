@@ -14,6 +14,18 @@ public class BlogDBService : IBlogDBService
         _supabase = client;
     }
 
+    public async Task<BlogResult> GetBlogByIdDB(long Id)
+    {
+        var data = await _supabase.From<Blog>().Where(w => w.Id == Id).Get();
+
+        if (data.Models.Count > 0)
+        {
+            var dataBlog = data.Models[0];
+        return new BlogResult(dataBlog.Id,dataBlog.Created_at,dataBlog.Title,dataBlog.Image,dataBlog.Paragraph,[dataBlog.Categories]);
+        }
+        return null;
+    }
+
     public async Task<List<BlogResult>> GetBlogsDB()
     {
         var respData = new List<BlogResult>();
@@ -25,6 +37,7 @@ public class BlogDBService : IBlogDBService
          data.Models.ForEach(w => {
             
             respData.Add(new BlogResult(
+                w.Id,
                 w.Created_at,
                 w.Title,
                 w.Image,

@@ -19,5 +19,12 @@ namespace Crescendo_User.Api.Controller
             return Ok(resp);
         }
 
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetBlogById(long id)
+        {
+            var resp = await _blogService.GetBlogById(id);
+            return Ok(resp);
+        }
+
     }
 }
