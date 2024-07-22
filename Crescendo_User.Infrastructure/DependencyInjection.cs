@@ -13,8 +13,8 @@ namespace Crescendo_User.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager configuration)
         {
             // services.Configure<Dbsetting>(configuration.GetSection("DBSetting"));
-                var url = "https://asdkfwfibyvttthucqbg.supabase.co";
-                var key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFzZGtmd2ZpYnl2dHR0aHVjcWJnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjExODgyMzQsImV4cCI6MjAzNjc2NDIzNH0.nZPmAdgZQhTgbEN1klqB3TKXupCX29Tq6_FLwtPDAKk";
+                var url = configuration["DBSetting:url"] ?? "";
+                var key = configuration["DBSetting:key"];
 
                 var options = new SupabaseOptions
                     {
